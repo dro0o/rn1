@@ -1,10 +1,20 @@
-import React, { useReducer } from 'react'
+import React, { useState } from 'react'
 import { Text, StyleSheet, View, TextInput } from 'react-native'
 
 const TextScreen = () => {
+  const [name, setName] = useState('')
+
   return (
     <View>
-      <TextInput style={styles.input} />
+      <Text>Enter your name: </Text>
+      <TextInput
+        autoCapitalize='none'
+        autoCorrect={false}
+        style={styles.input}
+        value={name}
+        onChangeText={newValue => setName(newValue)}
+      />
+      <Text>My name is: {name}</Text>
     </View>
   )
 }
